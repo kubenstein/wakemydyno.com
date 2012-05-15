@@ -1,0 +1,17 @@
+.bundle
+.DS_Store
+db/*.sqlite3
+log/*.log
+tmp/**/*
+.idea/**/*
+.idea
+.autotest
+public/system/**/*
+pg
+.sass-cache/
+results
+results/**/*
+coverage
+coverage/**/*
+public/assets
+public/assets/**/*
