@@ -1,0 +1,27 @@
+<h1>Listing pings</h1>
+
+<table>
+  <tr>
+    <th>Url</th>
+    <th>Mark for deletion</th>
+    <th>Counter</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pings.each do |ping| %>
+  <tr>
+    <td><%= ping.url %></td>
+    <td><%= ping.mark_for_deletion %></td>
+    <td><%= ping.counter %></td>
+    <td><%= link_to 'Show', ping %></td>
+    <td><%= link_to 'Edit', edit_ping_path(ping) %></td>
+    <td><%= link_to 'Destroy', ping, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Ping', new_ping_path %>
