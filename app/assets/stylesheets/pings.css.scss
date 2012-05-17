@@ -1,3 +1,83 @@
 // Place all the styles related to the Pings controller here.
-// They will automatically be included in application.css.
+// They will automatically be included in application.css.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+/* Make HTML 5 elements display block-level for consistent styling */
+
+div#top {
+  width: 1024px;
+  margin: 0 auto;
+}
+
+header {
+  h1 {
+    width: 648px;
+    height: 111px;
+    text-indent: -9999px;
+    background: image-url("logo.png") no-repeat 0 0;
+  }
+}
+
+section#social {
+  margin-top: -110px;
+  float: right;
+}
+
+section#cute_dyno {
+  float: left;
+  width: 512px;
+  height: 425px;
+  text-indent: -9999px;
+  background: image-url("dyno_awaken.png") no-repeat 50% 100%;
+}
+
+section#registration {
+  float: right;
+  width: 512px;
+
+  margin: 60px 0 0 0;
+
+  h2 {
+    font-weight: normal;
+    font-size: 20pt;
+  }
+
+  p {
+    font-size: 12pt;
+  }
+  span {
+    color: #f00;
+    font-size: 12pt;
+  }
+
+  li {
+    padding: 4px 0 0 10px;
+    font-size: 12pt;
+  }
+}
+
+div#bottom {
+  background-color: #261c0d;
+
+  span#grass {
+    position: relative;
+    display: block;
+    height: 81px;
+    top: -81px;
+    margin-bottom: -81px;
+    background: image-url("grass.png") repeat-x 0 0;
+  }
+}
+
+div#bottom_center {
+  width: 1024px;
+  margin: 0 auto;
+
+  cite {
+    display: block;
+    height: 41px;
+    width: 498px;
+    margin: 4px 0 0 115px;
+    text-indent: -9999px;
+    background: image-url("my_dynozaur.png") no-repeat 0 0;
+  }
+}

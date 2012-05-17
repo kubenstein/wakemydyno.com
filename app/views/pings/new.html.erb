@@ -1,5 +1,66 @@
-<h1>New ping</h1>
+<div id='top'>
+  <header>
+    <h1>
+      <a href="/">Wake my dyno</a>
+    </h1>
+  </header>
+  <section id='social'>
+    twitter, facebook
+  </section>
 
-<%= render 'form' %>
+  <section id='cute_dyno'>
+  <a href=''>sleeping dyno</a>
+</section>
 
-<%= link_to 'Back', pings_path %>
+
+<section id='registration'>
+  <%= form_for(@ping) do |f| %>
+      <% if @ping.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@ping.errors.count, "error") %> prohibited this ping from being saved:</h2>
+
+            <ul>
+              <% @ping.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+      <h2>Tired of long initial webpage loading time?</h2>
+
+      <p>We will ping your web page every 30minutes, keaping you app dyno up and ready!</p>
+      <ul>
+        <li>- create file: http://yoursite.com/wakemydyno.txt</li>
+        <li>- register your site:</li>
+      </ul>
+
+      <%= f.text_field :url %>
+      <%= f.submit %>
+  <% end %>
+</section>
+  <br class='clear' />
+</div>
+<div id='bottom'>
+  <span id='grass'></span>
+  <div id='bottom_center'>
+    <cite>My dynozaur felt asleep... again...</cite>
+
+  <section id='how_it_works'>
+    <h5>How it works</h5>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+  </section>
+
+  <section id='about'>
+    <h5>About</h5>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+  </section>
+    </div>
+</div>

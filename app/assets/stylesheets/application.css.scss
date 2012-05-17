@@ -11,3 +11,37 @@
  *= require_self
  *= require_tree .
 */
+
+header, section, nav, article, footer, address {
+  display: block;
+}
+
+h1, h2, h3, h4, ol, ul, fieldset, p, body {
+  margin: 0;
+  padding: 0;
+}
+
+fieldset, {
+  border: 0;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+label {
+  display: none;
+}
+
+
+br.clear {
+  clear: both;
+}
+
+/* -------------------------------------------------------- */
+@import url(http://fonts.googleapis.com/css?family=Comfortaa);
+
+body {
+  background-color: #b8e3ff;
+  font-family: "Comfortaa", Arial;
+}
