@@ -28,11 +28,19 @@ section#cute_dyno {
   height: 505px;
   text-indent: -9999px;
   background: image-url("dyno_awaken.png") no-repeat 50% 100%;
+
+  span.arrow {
+    display: block;
+    width: 216px;
+    height: 156px;
+    margin: 33px 0 0 33px;
+    background: image-url("info.png") no-repeat 50% 100%;
+  }
 }
 
 section#registration {
   float: right;
-  width: 512px;
+  width: 480px;
   margin: 40px 0 0 0;
 
   strong {
@@ -83,7 +91,7 @@ section#registration {
     float: right;
     width: 102px;
     height: 40px;
-    margin: 28px 50px 0 0;
+    margin: 28px 18px 0 0;
     border: 1px solid #000;
     background-color: #25ad00;
     font-size: 14pt;
@@ -119,7 +127,7 @@ div#bottom_center {
     width: 498px;
     margin: 4px 0 0 20px;
     text-indent: -9999px;
-    background: image-url("my_dynozaur.png") no-repeat 0 0;
+    background: image-url("my_dynosaur.png") no-repeat 0 0;
   }
 
   section {
