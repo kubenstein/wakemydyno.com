@@ -99,7 +99,6 @@ section#registration {
 
 div#bottom {
   background-color: #261c0d;
-
   span#grass {
     position: relative;
     display: block;
@@ -113,7 +112,6 @@ div#bottom {
 div#bottom_center {
   width: 1024px;
   margin: 0 auto;
-  padding-bottom: 10px;
 
   cite {
     display: block;
@@ -162,4 +160,11 @@ section#how_it_works {
   float: left;
   width: 412px;
   margin-top: 10px;
+}
+
+div#iphone_fixer {
+  height: 10px;
+  position: relative;
+  top: 5px;
+  background-color: #261C0D;
 }

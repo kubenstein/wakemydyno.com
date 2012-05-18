@@ -16,7 +16,7 @@ header, section, nav, article, footer, address {
   display: block;
 }
 
-h1, h2, h3, h4, h5, ol, ul, fieldset, p, body {
+h1, h2, h3, h4, h5, ol, ul, fieldset, p, body, html {
   margin: 0;
   padding: 0;
 }
@@ -33,13 +33,16 @@ label {
   display: none;
 }
 
-
 br.clear {
   clear: both;
 }
 
 /* -------------------------------------------------------- */
 @import url(http://fonts.googleapis.com/css?family=Comfortaa);
+
+html {
+  background-color: #261C0D;
+}
 
 body {
   background-color: #b8e3ff;
