@@ -18,8 +18,26 @@ header {
 }
 
 section#social {
-  margin-top: -110px;
+  margin-top: -98px;
   float: right;
+  a {
+    display: block;
+    width: 48px;
+    height: 48px;
+    text-indent: -9999px;
+      background-image: image-url("social.png");
+
+    &.twitter {
+      float: left;
+      margin-right: 15px;
+      background-position: 0 0;
+    }
+
+    &.facebook {
+      float: left;
+      background-position: 48px 0;
+    }
+  }
 }
 
 section#cute_dyno {
