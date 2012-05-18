@@ -50,7 +50,7 @@ section#registration {
   }
 
   li {
-    padding: 4px 0 0 10px;
+    padding: 8px 0 0 10px;
     font-size: 12pt;
   }
 }
@@ -76,8 +76,47 @@ div#bottom_center {
     display: block;
     height: 41px;
     width: 498px;
-    margin: 4px 0 0 115px;
+    margin: 4px 0 0 20px;
     text-indent: -9999px;
     background: image-url("my_dynozaur.png") no-repeat 0 0;
   }
+
+  section {
+    padding: 30px;
+    border-radius: 50px;
+    background-color: #413017;
+    color: #BC9B74;
+    h5 {
+      margin: -15px 0 0 0;
+      text-align: center;
+      font-size: 16pt;
+      color: #E9A95F;
+    }
+
+    p {
+      text-align: justify;
+    }
+
+    strong {
+      color: #6D6A7A;
+      font-weight: normal;
+    }
+
+    span {
+      font-style: italic;
+      font-family: "Courier New";
+    }
+  }
+}
+
+section#about {
+  float: right;
+  width: 412px;
+  margin-top: -25px;
+}
+
+section#how_it_works {
+  float: left;
+  width: 412px;
+  margin-top: 10px;
 }

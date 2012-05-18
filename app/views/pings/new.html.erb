@@ -9,58 +9,64 @@
   </section>
 
   <section id='cute_dyno'>
-  <a href=''>sleeping dyno</a>
-</section>
+    <a href=''>sleeping dyno</a>
+  </section>
 
 
-<section id='registration'>
-  <%= form_for(@ping) do |f| %>
-      <% if @ping.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(@ping.errors.count, "error") %> prohibited this ping from being saved:</h2>
+  <section id='registration'>
+    <%= form_for(@ping) do |f| %>
+        <% if @ping.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@ping.errors.count, "error") %> prohibited this ping from being saved:</h2>
 
-            <ul>
-              <% @ping.errors.full_messages.each do |msg| %>
-                  <li><%= msg %></li>
-              <% end %>
-            </ul>
-          </div>
-      <% end %>
-      <h2>Tired of long initial webpage loading time?</h2>
+              <ul>
+                <% @ping.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+        <h2>Tired of long initial webpage loading time?</h2>
 
-      <p>We will ping your web page every 30minutes, keaping you app dyno up and ready!</p>
-      <ul>
-        <li>- create file: http://yoursite.com/wakemydyno.txt</li>
-        <li>- register your site:</li>
-      </ul>
+        <p>We will ping your web page every 30minutes, keaping you app dyno up and ready!</p>
+        <ul>
+          <li>- create file: <strong class='dyno_strong'>http://yoursite.com/wakemydyno.txt</strong></li>
+          <li>- register your site:</li>
+        </ul>
 
-      <%= f.text_field :url %>
-      <%= f.submit %>
-  <% end %>
-</section>
-  <br class='clear' />
+        <%= f.text_field :url %>
+        <%= f.submit %>
+    <% end %>
+  </section>
+  <br class='clear'/>
 </div>
 <div id='bottom'>
   <span id='grass'></span>
+
   <div id='bottom_center'>
     <cite>My dynozaur felt asleep... again...</cite>
 
-  <section id='how_it_works'>
-    <h5>How it works</h5>
+    <section id='about'>
+      <h5>About</h5>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-  </section>
+      <p>We all know how awesome <strong>Heroku</strong> is. Simplicity in creating programing environments no matter if
+        you coding rails application, java, python, php and lots of others language is unbelievable.<br/>
+        Create, deploy, BOOM! New app is ready, up and running! But if your app is powered but
+        <strong>only 1 dyno</strong>, you will quickly <strong>notice</strong> that after few hours on app inactivity,
+        first new launch <strong>takes ages and ages...</strong> It is because your dyno was sleeping and now it has to
+        be awaken.</p>
+    </section>
 
-  <section id='about'>
-    <h5>About</h5>
+    <section id='how_it_works'>
+      <h5>How it works</h5>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-  </section>
-    </div>
+      <p>wakemydyno.com provides very simple mechanism preventing your dyno falling asleep: We will ping your site every
+        30min!<br/> <strong>No registration</strong> is needed, however we will ask you to create
+        <span>wakemydyno.txt</span> file under root url of your site. Our crawler will hit this file, keeping dyno
+        <strong>active</strong>.<br/> <br/>If <strong>you decided</strong> to stop being pinged just delete that file
+        and after couple of days we will delete your site form our pinging list. That <strong>simple!</strong></p>
+    </section>
+
+    <br class='clear'/>
+  </div>
 </div>
