@@ -3,6 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 /* Make HTML 5 elements display block-level for consistent styling */
 
+@import url(http://fonts.googleapis.com/css?family=Gorditas);
+
 div#top {
   width: 1024px;
   margin: 0 auto;
@@ -52,6 +54,19 @@ section#cute_dyno {
     height: 156px;
     margin: 33px 0 0 33px;
     background: image-url("info.png") no-repeat 50% 100%;
+  }
+
+  span#talks {
+    float: left;
+    display: block;
+    width: 200px;
+    height: 50px;
+    margin: -70px 0 0 248px;
+    text-indent: initial;
+    font-size: 24pt;
+    text-align: center;
+    //opacity: 0;
+    font-family: "Gorditas";
   }
 
   a {
