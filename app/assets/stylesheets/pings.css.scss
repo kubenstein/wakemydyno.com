@@ -25,7 +25,7 @@ section#social {
     width: 48px;
     height: 48px;
     text-indent: -9999px;
-      background-image: image-url("social.png");
+    background-image: image-url("social.png");
 
     &.twitter {
       float: left;
@@ -45,7 +45,6 @@ section#cute_dyno {
   width: 512px;
   height: 505px;
   text-indent: -9999px;
-  background: image-url("dyno_awaken.png") no-repeat 50% 100%;
 
   span.arrow {
     display: block;
@@ -53,6 +52,27 @@ section#cute_dyno {
     height: 156px;
     margin: 33px 0 0 33px;
     background: image-url("info.png") no-repeat 50% 100%;
+  }
+
+  a {
+    display: block;
+    width: 291px;
+    height: 309px;
+    margin-left: 164px;
+    background: image-url("dyno_awaken.png") no-repeat 50% 100%;
+
+    span.eyes {
+      float: left;
+      display: block;
+      width: 19px;
+      height: 16px;
+      margin: 51px 0 0 197px;
+      background: image-url("eyes.png") no-repeat 0 0;
+    }
+
+    span.eyes_blink {
+      background-position: -23px 0;
+    }
   }
 }
 
@@ -143,7 +163,7 @@ div#bottom_center {
     display: block;
     height: 41px;
     width: 498px;
-    margin: 4px 0 0 20px;
+    margin: 4px 0 0 0;
     text-indent: -9999px;
     background: image-url("my_dynosaur.png") no-repeat 0 0;
   }
@@ -179,7 +199,7 @@ div#bottom_center {
 section#about {
   float: right;
   width: 412px;
-  margin-top: -25px;
+  margin-top: -33px;
 }
 
 section#how_it_works {
