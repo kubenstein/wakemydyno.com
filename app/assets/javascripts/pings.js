@@ -34,7 +34,7 @@ jQuery(document).ready(function () {
 
         var talks = $('#talks');
         var answers = talks.attr('data-answers').split('|');
-        talks[0].innerHTML = answers[Math.floor(Math.random()*answers.length)];
+        talks[0].innerHTML = answers[Math.floor(Math.random() * answers.length)];
         talks.css('margin-top', -70);
         talks.css('opacity', 1);
         talks.animate({
@@ -45,4 +45,12 @@ jQuery(document).ready(function () {
         });
     });
 
+    //dynosaur pointer
+    function show_dynozaur_pointer() {
+        $('#cute_dyno span.arrow').animate({
+            opacity:1
+        }, 3000);
+    }
+
+    setTimeout(show_dynozaur_pointer, 1000);
 })

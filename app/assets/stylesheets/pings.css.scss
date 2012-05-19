@@ -53,6 +53,7 @@ section#cute_dyno {
     width: 216px;
     height: 156px;
     margin: 33px 0 0 33px;
+    opacity: 0;
     background: image-url("info.png") no-repeat 50% 100%;
   }
 
@@ -65,7 +66,7 @@ section#cute_dyno {
     text-indent: initial;
     font-size: 24pt;
     text-align: center;
-    //opacity: 0;
+    opacity: 0;
     font-family: "Gorditas";
   }
 
