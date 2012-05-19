@@ -20,13 +20,13 @@
 
 
   <section id='registration'>
-    <%= form_for(@ping) do |f| %>
-        <% if @ping.errors.any? %>
+    <%= form_for(@url) do |f| %>
+        <% if @url.errors.any? %>
             <div id="error_explanation">
-              <h2><%= pluralize(@ping.errors.count, "error") %> prohibited this ping from being saved:</h2>
+              <h2><%= pluralize(@url.errors.count, "error") %> prohibited this ping from being saved:</h2>
 
               <ul>
-                <% @ping.errors.full_messages.each do |msg| %>
+                <% @url.errors.full_messages.each do |msg| %>
                     <li><%= msg %></li>
                 <% end %>
               </ul>
@@ -40,7 +40,7 @@
           <li>- register your site:</li>
         </ul>
 
-        <%= f.text_field :url %>
+        <%= f.text_field :address %>
         <%= f.submit 'submit' %>
     <% end %>
   </section>

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PingsControllerTest < ActionController::TestCase
+class UrlsControllerTest < ActionController::TestCase
   setup do
     @ping = pings(:one)
   end
@@ -8,7 +8,7 @@ class PingsControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:pings)
+    assert_not_nil assigns(:urls)
   end
 
   test "should get new" do
@@ -17,7 +17,7 @@ class PingsControllerTest < ActionController::TestCase
   end
 
   test "should create ping" do
-    assert_difference('Ping.count') do
+    assert_difference('Url.count') do
       post :create, ping: { counter: @ping.counter, mark_for_deletion: @ping.mark_for_deletion, url: @ping.url }
     end
 
@@ -40,7 +40,7 @@ class PingsControllerTest < ActionController::TestCase
   end
 
   test "should destroy ping" do
-    assert_difference('Ping.count', -1) do
+    assert_difference('Url.count', -1) do
       delete :destroy, id: @ping
     end
 

@@ -1,6 +1,6 @@
 Wakemydyno::Application.routes.draw do
 
-  resources :pings, only: [:create, :new, :create]
+  resources :urls, only: [:create, :new, :create]
 
-  root :to => 'pings#new'
+  root :to => 'urls#new'
 end
