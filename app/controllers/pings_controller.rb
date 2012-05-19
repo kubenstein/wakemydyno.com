@@ -11,7 +11,7 @@ class PingsController < ApplicationController
   def create
     @ping = Ping.new(params[:ping])
     if @ping.save
-      redirect_to @ping, notice: 'Ping was successfully created.'
+      redirect_to :root, notice: 'Ping was successfully created.'
     else
       render action: "new"
     end
