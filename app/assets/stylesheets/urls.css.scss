@@ -222,6 +222,21 @@ section#how_it_works {
   margin-top: 10px;
 }
 
+
+footer {
+  padding-top: 30px;
+  text-align: center;
+  color: #413017;
+  text-shadow: 1px 1px #000;
+  span {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    text-indent: -9999px;
+    background: image-url("footer.png") no-repeat 50% 100%;
+  }
+}
+
 div#iphone_fixer {
   height: 10px;
   position: relative;
