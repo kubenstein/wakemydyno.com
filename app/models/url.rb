@@ -4,8 +4,15 @@ class Url < ActiveRecord::Base
 
   validates_format_of :address, :with => /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}\/?$/ix
   validates_uniqueness_of :address
-  validate :wakefile_on_remote_server, :on => :create
+  validate :check_wakefile_existence, :on => :create
 
+  #
+  # for rake task
+  def ping
+    connect(1)
+    self.pinged += 1
+    save
+  end
 
 
   private
@@ -14,11 +21,22 @@ class Url < ActiveRecord::Base
     address.chomp! '/'
   end
 
-  def wakefile_on_remote_server
-    if Net::HTTP.get_response(URI.parse("#{address}/wakemydyno.txt")).code.to_i != "200"
+  def check_wakefile_existence
+    if connect.code != "200"
       self.errors[:base] << "We can't find wakemydyno.txt file on requested site"
       false
     end
   end
 
+  def connect(timeout = 60)
+    uri = URI "#{address}/wakemydyno.txt"
+    request = Net::HTTP::Head.new(uri.request_uri)
+    begin
+      Timeout::timeout(timeout) do
+        Net::HTTP.start(uri.host, uri.port) { |h| h.request request }
+      end
+    rescue Exception => err
+      puts err.message
+    end
+  end
 end
