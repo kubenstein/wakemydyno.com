@@ -9,7 +9,7 @@ class Url < ActiveRecord::Base
   #
   # for rake task
   def ping
-    connect(1)
+    connection_established?(1)
     self.pinged += 1
     save
   end
@@ -22,7 +22,7 @@ class Url < ActiveRecord::Base
   end
 
   def check_wakefile_existence
-    if connect.code != "200"
+    if !connection_established?
       self.errors[:base] << "We can't find wakemydyno.txt file on requested site"
       false
     end
@@ -35,15 +35,17 @@ class Url < ActiveRecord::Base
     end
   end
 
-  def connect(timeout = 60)
-    uri = URI "#{address}/wakemydyno.txt"
-    request = Net::HTTP::Head.new(uri.request_uri)
+  def connection_established?(timeout = 60)
     begin
+      uri = URI "#{address}/wakemydyno.txt"
+      request = Net::HTTP::Head.new(uri.request_uri)
       Timeout::timeout(timeout) do
         Net::HTTP.start(uri.host, uri.port) { |h| h.request request }
       end
+      true
     rescue Exception => err
       puts err.message
+      false
     end
   end
 end
