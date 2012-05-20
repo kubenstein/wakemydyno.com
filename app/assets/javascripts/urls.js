@@ -26,15 +26,12 @@ jQuery(document).ready(function () {
 
     // dyno confusion
     var talks_ready = 1;
-    $('#cute_dyno a').click(function (event) {
-        event.preventDefault();
-
+    function talk(text) {
         if (!talks_ready) return;
         talks_ready = 0;
 
         var talks = $('#talks');
-        var answers = talks.attr('data-answers').split('|');
-        talks[0].innerHTML = answers[Math.floor(Math.random() * answers.length)];
+        talks[0].innerHTML = text;
         talks.css('margin-top', -70);
         talks.css('opacity', 1);
         talks.animate({
@@ -43,7 +40,20 @@ jQuery(document).ready(function () {
         }, 1000, 'linear', function () {
             talks_ready = 1
         });
+    }
+
+    $('#cute_dyno a').click(function (event) {
+        event.preventDefault();
+        var answers = $('#talks').attr('data-answers').split('|');
+        var sentence = answers[Math.floor(Math.random() * answers.length)];
+        talk( sentence );
     });
+
+    // on success creating dyno should say 'yupi!'
+    if( $('#registration ul li.ok').length !== 0 ) {
+        setTimeout(function() {talk('yupi!');}, 500);
+    }
+
 
     //dynosaur pointer
     function show_dynozaur_pointer() {
