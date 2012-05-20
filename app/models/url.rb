@@ -48,12 +48,12 @@ class Url < ActiveRecord::Base
       Timeout::timeout(timeout) do
         response = Net::HTTP.start(uri.host, uri.port) { |h| h.request request }
         if response.code != "200"
-          raise "not found"
+          raise "wakemydyno.txt not found for #{address}"
         end
       end
       true
     rescue Exception => err
-      puts err.message
+      puts "! #{err.message}"
       false
     end
   end
