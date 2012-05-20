@@ -29,8 +29,12 @@
                   <li class='error'>- <%= msg %></li>
               <% end %>
           <% else %>
-              <li>- create file: <strong>http://yoursite.com/wakemydyno.txt</strong></li>
-              <li>- register your site:</li>
+              <% if notice.present? %>
+                  <li class='ok'>- <%= notice %></li>
+              <% else %>
+                  <li>- create file: <strong>http://yoursite.com/wakemydyno.txt</strong></li>
+                  <li>- register your site:</li>
+              <% end %>
           <% end %>
         </ul>
 

@@ -11,7 +11,7 @@ class UrlsController < ApplicationController
   def create
     @url = Url.new(params[:url])
     if @url.save
-      redirect_to :root, notice: 'Url was successfully created.'
+      redirect_to :root, notice: 'Url was successfully added to our dyno database!'
     else
       render action: "new"
     end
