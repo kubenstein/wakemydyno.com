@@ -14,6 +14,12 @@ class Url < ActiveRecord::Base
     save
   end
 
+  def should_be_deleted?
+    founded = wake_file_founded?
+    return true if not founded and self.mark_for_deletion
+    self.mark_for_deletion = !founded
+    return false
+  end
 
   private
 
