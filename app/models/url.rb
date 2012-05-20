@@ -3,7 +3,7 @@ class Url < ActiveRecord::Base
   before_validation :trim_ending_slash
 
   validates_format_of :address, with: /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}\/?$/ix
-  validate :address_uniqueness
+  validate :address_uniqueness, :on => :create
   validate :check_wakefile_existence, :on => :create
 
   #
@@ -11,7 +11,7 @@ class Url < ActiveRecord::Base
   def ping
     wake_file_founded?(1)
     self.pinged += 1
-    save
+    save!
   end
 
   def should_be_deleted?
