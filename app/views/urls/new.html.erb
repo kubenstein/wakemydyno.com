@@ -21,23 +21,18 @@
 
   <section id='registration'>
     <%= form_for(@url) do |f| %>
-        <% if @url.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(@url.errors.count, "error") %> prohibited this ping from being saved:</h2>
-
-              <ul>
-                <% @url.errors.full_messages.each do |msg| %>
-                    <li><%= msg %></li>
-                <% end %>
-              </ul>
-            </div>
-        <% end %>
         <h2>Tired of long initial webpage loading time on Heroku?</h2>
 
         <p>We will ping your web page every 30minutes, keaping you app dyno up and ready!</p>
         <ul>
-          <li>- create file: <strong>http://yoursite.com/wakemydyno.txt</strong></li>
-          <li>- register your site:</li>
+          <% if @url.errors.any? %>
+              <% @url.errors.full_messages.each do |msg| %>
+                  <li class='error'>- <%= msg %></li>
+              <% end %>
+          <% else %>
+              <li>- create file: <strong>http://yoursite.com/wakemydyno.txt</strong></li>
+              <li>- register your site:</li>
+          <% end %>
         </ul>
 
         <%= f.text_field :address %>

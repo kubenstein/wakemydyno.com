@@ -122,6 +122,10 @@ section#registration {
     font-size: 12pt;
   }
 
+  li.error {
+    color: #f00;
+  }
+
   input[type="text"] {
     width: 302px;
     margin: 30px 0 0 10px;
