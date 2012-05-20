@@ -22,7 +22,7 @@
     <%= form_for(@url) do |f| %>
         <h2>Tired of long initial webpage loading time on Heroku?</h2>
 
-        <p>We will ping your web page every 30minutes, keaping you app dyno up and ready!</p>
+        <p>We will ping your web page every hour, keaping you app dyno up and ready!</p>
         <ul>
           <% if @url.errors.any? %>
               <% @url.errors.full_messages.each do |msg| %>
@@ -61,7 +61,7 @@
       <h5>How it works</h5>
 
       <p>wakemydyno.com provides very simple mechanism preventing your dyno falling asleep: We will ping your site every
-        30min!<br/> <strong>No registration</strong> is needed, however we will ask you to create
+        hour!<br/> <strong>No registration</strong> is needed, however we will ask you to create
         <span>wakemydyno.txt</span> file under root url of your site. Our crawler will hit this file, keeping dyno
         <strong>active</strong>.<br/> <br/>If <strong>you decided</strong> to stop being pinged just delete that file
         and after couple of days we will delete your site form our pinging list. That <strong>simple!</strong></p>
