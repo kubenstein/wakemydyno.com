@@ -9,7 +9,8 @@ class Url < ActiveRecord::Base
   #
   # for rake task
   def self.in_rake_task
-    return unless Time.new.min.between? 25, 34
+    minutes = Time.new.min
+    return if !(minutes.between?(25, 34) || minutes.between?(55, 04))
     puts "30min pinging..."
     Url.all.each do |url|
       puts "pinging #{url.address}..."
