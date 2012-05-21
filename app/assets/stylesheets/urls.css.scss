@@ -30,14 +30,17 @@ section#social {
 
     &.twitter {
       float: left;
-      margin-right: 15px;
+      margin: 6px 15px 0 0;
       background-position: 0 0;
     }
 
-    &.facebook {
-      float: left;
-      background-position: 48px 0;
-    }
+  }
+
+  iframe {
+    border: none;
+    overflow: hidden;
+    width: 51px;
+    height: 61px;
   }
 }
 
@@ -229,7 +232,6 @@ section#left_text {
   width: 412px;
   margin-top: 10px;
 }
-
 
 footer {
   padding-top: 30px;
