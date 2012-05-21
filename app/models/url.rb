@@ -8,6 +8,16 @@ class Url < ActiveRecord::Base
 
   #
   # for rake task
+  def self.in_rake_task
+    return unless Time.new.min.between? 25, 34
+    puts "30min pinging..."
+    Url.all.each do |url|
+      puts "pinging #{url.address}..."
+      url.ping
+    end
+    puts "done."
+  end
+
   def ping
     wake_file_founded?(1)
     self.pinged += 1
@@ -20,6 +30,7 @@ class Url < ActiveRecord::Base
     self.mark_for_deletion = !founded
     return false
   end
+
 
   private
 
