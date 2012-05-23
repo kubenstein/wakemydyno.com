@@ -8,13 +8,25 @@ class Url < ActiveRecord::Base
 
   #
   # for rake task
-  def self.in_rake_task
+  def self.pinging_in_rake_task
     minutes = Time.new.min
     return if !(minutes.between?(25, 34) || minutes.between?(55, 04))
     puts "30min pinging..."
     Url.all.each do |url|
       puts "pinging #{url.address}..."
       url.ping
+    end
+    puts "done."
+  end
+
+  def self.url_check_in_rake_task
+    puts "daily url check..."
+    Url.all.each do |url|
+      puts "checking #{url.address}"
+      if url.should_be_deleted?
+        puts "Deleting #{url.address}"
+        url.destroy
+      end
     end
     puts "done."
   end
@@ -29,9 +41,9 @@ class Url < ActiveRecord::Base
     founded = wake_file_founded?
     return true if not founded and self.mark_for_deletion
     self.mark_for_deletion = !founded
+    save
     return false
   end
-
 
   private
 
@@ -53,7 +65,7 @@ class Url < ActiveRecord::Base
     end
   end
 
-  def wake_file_founded?(timeout = 60)
+  def wake_file_founded?(timeout = 90)
     begin
       uri = URI "#{address}/wakemydyno.txt"
       request = Net::HTTP::Head.new(uri.request_uri)
