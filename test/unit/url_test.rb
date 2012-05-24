@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class UrlTest < ActiveSupport::TestCase
+
   test "address uniqueness" do
     valid = FactoryGirl.build(:url)
     invalid = FactoryGirl.build(:url)
@@ -41,5 +42,22 @@ class UrlTest < ActiveSupport::TestCase
     assert_difference('Url.count', -1) do
       Url.url_check_in_rake_task
     end
+  end
+
+  test "half-hourly pining" do
+    t = Time.local(2012, 5, 24, 21, 0)
+    Timecop.travel(t)
+    url = FactoryGirl.create(:url)
+    pings = url.pinged
+
+    # since heroku scheduler runs in 10 min cycles, there will be 6 runs in hour
+    [:ping, :not_ping, :not_ping, :ping, :not_ping, :not_ping].each do |action|
+      Url.pinging_in_rake_task
+      pings += 1 if action == :ping
+      assert_equal pings, Url.first.pinged
+      Timecop.freeze(10*60)
+    end
+
+    Timecop.return
   end
 end

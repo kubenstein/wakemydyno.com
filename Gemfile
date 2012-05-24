@@ -9,9 +9,10 @@ group :assets do
 end
 
 group :test do
-  gem 'test-unit'
-  gem 'factory_girl_rails'
+  gem 'test-unit', '2.4.8'
+  gem 'factory_girl_rails', '3.1.0'
   gem 'fakeweb'
+  gem 'timecop'
   gem 'simplecov', :require => false
 end
 
