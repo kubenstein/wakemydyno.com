@@ -1,49 +1,27 @@
 require 'test_helper'
 
 class UrlsControllerTest < ActionController::TestCase
-  setup do
-    @ping = pings(:one)
-  end
-
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:urls)
-  end
 
   test "should get new" do
     get :new
     assert_response :success
+    assert_template :new
   end
 
-  test "should create ping" do
-    assert_difference('Url.count') do
-      post :create, ping: { counter: @ping.counter, mark_for_deletion: @ping.mark_for_deletion, url: @ping.url }
+  test "should create url" do
+    assert_difference('Url.count', 1) do
+      post :create, url: FactoryGirl.attributes_for(:url)
     end
 
-    assert_redirected_to ping_path(assigns(:ping))
+    assert_redirected_to root_path, 'root'
+    assert_equal 'Url was successfully added to our dyno database!', flash[:notice]
   end
 
-  test "should show ping" do
-    get :show, id: @ping
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, id: @ping
-    assert_response :success
-  end
-
-  test "should update ping" do
-    put :update, id: @ping, ping: { counter: @ping.counter, mark_for_deletion: @ping.mark_for_deletion, url: @ping.url }
-    assert_redirected_to ping_path(assigns(:ping))
-  end
-
-  test "should destroy ping" do
-    assert_difference('Url.count', -1) do
-      delete :destroy, id: @ping
+  test "should not create url lack of wakemydyno.txt file" do
+    assert_no_difference('Url.count') do
+      post :create, url: FactoryGirl.attributes_for(:no_file_url)
     end
-
-    assert_redirected_to pings_path
+    assert_response :success
+    assert_template :new
   end
 end

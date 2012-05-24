@@ -14,7 +14,7 @@ class Url < ActiveRecord::Base
     puts "30min pinging..."
     Url.all.each do |url|
       puts "pinging #{url.address}..."
-      url.ping
+      url.ping!
     end
     puts "done."
   end
@@ -31,7 +31,7 @@ class Url < ActiveRecord::Base
     puts "done."
   end
 
-  def ping
+  def ping!
     wake_file_founded?(1)
     self.pinged += 1
     save!

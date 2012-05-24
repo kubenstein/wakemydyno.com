@@ -9,6 +9,10 @@ group :assets do
 end
 
 group :test do
+  gem 'test-unit'
+  gem 'factory_girl_rails'
+  gem 'fakeweb'
+  gem 'simplecov', :require => false
 end
 
 group :development do
