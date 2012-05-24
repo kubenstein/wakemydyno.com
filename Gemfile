@@ -11,8 +11,8 @@ end
 group :test do
   gem 'test-unit', '2.4.8'
   gem 'factory_girl_rails', '3.1.0'
-  gem 'fakeweb'
-  gem 'timecop'
+  gem 'fakeweb','1.3.0'
+  gem 'timecop', '0.3.5'
   gem 'simplecov', :require => false
 end
 

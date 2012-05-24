@@ -122,7 +122,7 @@ PLATFORMS
 
 DEPENDENCIES
   factory_girl_rails (= 3.1.0)
-  fakeweb
+  fakeweb (= 1.3.0)
   heroku
   jquery-rails
   pg (= 0.13.2)
@@ -131,5 +131,5 @@ DEPENDENCIES
   simplecov
   sqlite3 (= 1.3.6)
   test-unit (= 2.4.8)
-  timecop
+  timecop (= 0.3.5)
   uglifier (= 1.2.4)
