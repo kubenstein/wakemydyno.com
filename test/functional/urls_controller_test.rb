@@ -24,4 +24,12 @@ class UrlsControllerTest < ActionController::TestCase
     assert_response :success
     assert_template :new
   end
+
+  test "should not create url invalid address" do
+
+    post :create, url: {address: 'not_url_at_all'}
+
+    assert_response :success
+    assert_template :new
+  end
 end
