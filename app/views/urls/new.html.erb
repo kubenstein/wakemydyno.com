@@ -21,7 +21,7 @@
     <%= form_for(@url) do |f| %>
         <h2>Tired of long initial webpage loading time on Heroku?</h2>
 
-        <p>We will ping your web page every hour, keaping you app dyno up and ready!</p>
+        <p>We will ping your web page every hour, keeping your app dyno up and ready!</p>
         <ul>
           <% if @url.errors.any? %>
               <% @url.errors.full_messages.each do |msg| %>
@@ -57,7 +57,7 @@
         <strong>No registration</strong> is needed, however we will ask you to create <span>wakemydyno.txt</span> file
         under root url of your site. Our crawler will hit this file, keeping dyno <strong>active</strong>.<br/>
         <br/>
-        If <strong>you decided</strong> to stop being pinged just delete <span>wakemydyno.txt</span> file and after couple of days we will drop
+        If <strong>you decided</strong> to stop being pinged, just delete <span>wakemydyno.txt</span> file and after couple of days we will drop
         your site from our pinging list. That <strong>simple!</strong></p>
     </section>
 
@@ -67,7 +67,7 @@
       <p>We all know how awesome <strong>Heroku</strong> is. Simplicity in creating environments for your rails, java,
         python or php application is just unbelievable.<br/>
         Create, deploy, BOOM! New app is ready, up and running! But if your site is powered but
-        <strong>only 1 dyno</strong>, you will quickly <strong>notice</strong> that after few hours on app inactivity,
+        <strong>only 1 dyno</strong>, you will quickly <strong>notice</strong> that after few hours of app inactivity,
         first launch <strong>takes ages and ages</strong>... It is because your dyno was sleeping and now it has to be
         awaken.</p>
     </section>
