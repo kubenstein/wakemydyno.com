@@ -218,6 +218,11 @@ div#bottom_center {
       font-style: italic;
       font-family: "Courier New";
     }
+
+    a {
+      color: #F90;
+      font-weight: bold;
+    }
   }
 }
 
@@ -225,6 +230,7 @@ section#right_text {
   float: right;
   width: 412px;
   margin-top: -12px;
+  margin-bottom: 30px;
 }
 
 section#left_text {
@@ -233,8 +239,11 @@ section#left_text {
   margin-top: 10px;
 }
 
+section#center_text {
+  clear: both;
+}
+
 footer {
-  padding-top: 30px;
   text-align: center;
   color: #5c442f;
   text-shadow: 1px 1px #000;
