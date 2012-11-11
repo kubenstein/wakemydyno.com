@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 /* Make HTML 5 elements display block-level for consistent styling */
+@import "sprites/*.png";
 
 div#top {
   width: 1024px;
@@ -14,7 +15,7 @@ header {
     width: 648px;
     height: 111px;
     text-indent: -9999px;
-    background: image-url("logo.png") no-repeat 0 0;
+    @include sprites-sprite(logo);
   }
 }
 
@@ -26,12 +27,11 @@ section#social {
     width: 48px;
     height: 48px;
     text-indent: -9999px;
-    background-image: image-url("social.png");
+    @include sprites-sprite(social);
 
     &.twitter {
       float: left;
       margin: 6px 15px 0 0;
-      background-position: 0 0;
     }
 
   }
@@ -55,7 +55,7 @@ section#cute_dyno {
     height: 156px;
     margin: 33px 0 0 33px;
     opacity: 0;
-    background: image-url("info.png") no-repeat 50% 100%;
+    @include sprites-sprite(info);
   }
 
   span#talks {
@@ -76,7 +76,7 @@ section#cute_dyno {
     width: 291px;
     height: 309px;
     margin-left: 164px;
-    background: image-url("dyno_awaken.png") no-repeat 50% 100%;
+    @include sprites-sprite(dyno_awaken);
 
     span.eyes {
       float: left;
@@ -84,11 +84,11 @@ section#cute_dyno {
       width: 19px;
       height: 16px;
       margin: 51px 0 0 197px;
-      background: image-url("eyes.png") no-repeat 0 0;
+      @include sprites-sprite(eyes);
     }
 
     span.eyes_blink {
-      background-position: -23px 0;
+      @include sprites-sprite(blink_eyes);
     }
   }
 }
@@ -176,7 +176,8 @@ div#bottom {
     height: 81px;
     top: -81px;
     margin-bottom: -81px;
-    background: image-url("grass.png") repeat-x 0 0;
+    @include sprites-sprite(grass);
+    background-repeat: repeat-x;
   }
 }
 
@@ -190,7 +191,7 @@ div#bottom_center {
     width: 498px;
     margin: 4px 0 0 0;
     text-indent: -9999px;
-    background: image-url("my_dynosaur.png") no-repeat 0 0;
+    @include sprites-sprite(my_dynosaur);
   }
 
   section {
@@ -252,7 +253,7 @@ footer {
     width: 23px;
     height: 23px;
     text-indent: -9999px;
-    background: image-url("footer.png") no-repeat 50% 100%;
+    @include sprites-sprite(footer);
   }
 }
 

@@ -6,6 +6,7 @@ gem 'jquery-rails'
 group :assets do
   gem 'sass-rails', '3.2.5'
   gem 'uglifier', '1.2.4'
+  gem 'compass-rails', '1.0.3'
 end
 
 group :test do
@@ -18,6 +19,7 @@ end
 
 group :development do
   gem 'sqlite3', '1.3.6'
+  gem 'thin'
   gem 'heroku'
 end
 
