@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: urls
+#
+#  id                  :integer          not null, primary key
+#  address             :string(255)
+#  marked_for_deletion :boolean          default(FALSE)
+#  pinged              :integer          default(0)
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#
+
 require 'test_helper'
 
 class UrlTest < ActiveSupport::TestCase
@@ -6,7 +18,7 @@ class UrlTest < ActiveSupport::TestCase
     valid = FactoryGirl.build(:url)
     invalid = FactoryGirl.build(:url)
 
-    assert_difference('Url.count', 1) do
+    assert_difference('Url.count') do
       valid.save
       invalid.save
     end
@@ -24,40 +36,14 @@ class UrlTest < ActiveSupport::TestCase
     assert_equal 1, url.pinged
   end
 
-  test "should be deleted" do
+  test "check!" do
     url = FactoryGirl.create(:url)
     url.address = 'http://nofile.com' #mock
     url.save
 
-    assert_equal false, url.should_be_deleted?
-    assert_equal true, url.should_be_deleted?
+    assert_equal false, url.marked_for_deletion?
+    url.check!
+    assert_equal true, url.marked_for_deletion?
   end
 
-  test "daily deletion" do
-    url = FactoryGirl.create(:url)
-    url.address = 'http://nofile.com' #mock
-    url.mark_for_deletion = true
-    url.save
-
-    assert_difference('Url.count', -1) do
-      Url.url_check_in_rake_task
-    end
-  end
-
-  test "half-hourly pining" do
-    t = Time.local(2012, 5, 24, 21, 0)
-    Timecop.travel(t)
-    url = FactoryGirl.create(:url)
-    pings = url.pinged
-
-    # since heroku scheduler runs in 10 min cycles, there will be 6 runs in hour
-    [:ping, :not_ping, :not_ping, :ping, :not_ping, :not_ping].each do |action|
-      Url.pinging_in_rake_task
-      pings += 1 if action == :ping
-      assert_equal pings, Url.first.pinged
-      Timecop.freeze(10*60)
-    end
-
-    Timecop.return
-  end
 end

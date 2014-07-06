@@ -1,0 +1,11 @@
+doctype html
+html
+  head
+    title Wake my dyno!
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'application'
+    meta content='width=1225' name='viewport'
+      = csrf_meta_tags
+  = render 'layouts/ga'
+  body
+    = yield

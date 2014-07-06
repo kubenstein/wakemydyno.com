@@ -1,16 +1,20 @@
 class UrlsController < ApplicationController
-
-  def new
-    @url = Url.new
-  end
+  before_filter :create_resource
 
   def create
     @url = Url.new(params[:url])
     if @url.save
       redirect_to :root, notice: 'Url was successfully added to our dyno database!'
     else
-      render action: "new"
+      render :new
     end
+  end
+
+
+  private
+
+  def create_resource
+    @url = Url.new(params[:url])
   end
 
 end

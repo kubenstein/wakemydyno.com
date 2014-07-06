@@ -1,0 +1,41 @@
+#top
+  header
+    h1
+      = link_to 'Wake my dyno', root_path
+  section#social
+    a.twitter href="https://twitter.com/#!/wakemydyno" twitter
+  section#cute_dyno
+    span.arrow
+    span#talks data-answers=("huh..|ROAR?|Hi!|yeeey!|need sleep..")
+    a href=""
+      span.eyes
+  section#registration
+    = form_for(@url) do |f|
+      h2 Tired of long initial webpage loading time on Heroku?
+      p We will ping your web page every hour, keeping your app dyno up and ready!
+      ul
+        - if @url.errors.any?
+          - @url.errors.full_messages.each do |msg|
+            li.error= "- #{msg}"
+
+        - if notice.present?
+          li.ok= "- #{notice}"
+        - else
+          li
+            | - create file:
+            strong &nbsp;http://yoursite.com/wakemydyno.txt
+          li - register your site:
+      = f.text_field :address, placeholder: 'http://example.com'
+      = f.submit 'submit'
+  br.clear
+#bottom
+  span#grass
+  #bottom_center
+    cite My dynozaur felt asleep... again...
+    = render 'bubbles'
+    br.clear
+  footer
+    | copyright
+    span ©
+    | wakemydyno.com
+  #iphone_fixer

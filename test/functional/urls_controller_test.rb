@@ -9,7 +9,7 @@ class UrlsControllerTest < ActionController::TestCase
   end
 
   test "should create url" do
-    assert_difference('Url.count', 1) do
+    assert_difference('Url.count') do
       post :create, url: FactoryGirl.attributes_for(:url)
     end
 

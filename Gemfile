@@ -1,29 +1,35 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.3'
+ruby '2.1.1'
+gem 'rails', '3.2.19'
+
+
 gem 'jquery-rails'
+gem 'slim'
 
 group :assets do
-  gem 'sass-rails', '3.2.5'
-  gem 'uglifier', '1.2.4'
-  gem 'compass-rails', '1.0.3'
+  gem 'sass-rails'
+  gem 'uglifier'
+  gem 'compass-rails'
 end
 
 group :test do
-  gem 'test-unit', '2.4.8'
-  gem 'factory_girl_rails', '3.1.0'
-  gem 'fakeweb','1.3.0'
-  gem 'timecop', '0.3.5'
-  gem 'simplecov', :require => false
+  gem 'test-unit'
+  gem 'factory_girl_rails'
+  gem 'fakeweb'
+  gem 'timecop'
+  gem 'simplecov', require: false
 end
 
 group :development do
-  gem 'sqlite3', '1.3.6'
+  gem 'sqlite3'
   gem 'thin'
-  gem 'heroku'
+  gem 'rails-dev-tweaks'
+  gem 'quiet_assets'
+  gem 'annotate'
 end
 
 group :production do
-  gem 'unicorn', '4.3.1'
-  gem 'pg', '0.13.2'
+  gem 'unicorn'
+  gem 'pg', '0.17.1'
 end
