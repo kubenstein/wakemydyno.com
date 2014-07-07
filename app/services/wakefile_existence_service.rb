@@ -12,6 +12,7 @@ class WakefileExistenceService < Struct.new(:address)
     true
   rescue Exception => err
     puts "! #{err.message}"
+    Raven.capture_exception(err)
     false
   end
 

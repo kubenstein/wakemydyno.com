@@ -6,6 +6,7 @@ gem 'rails', '3.2.19'
 
 gem 'jquery-rails'
 gem 'slim'
+gem 'sentry-raven'
 
 group :assets do
   gem 'sass-rails'
