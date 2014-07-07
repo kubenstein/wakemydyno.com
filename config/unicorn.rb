@@ -3,31 +3,20 @@ timeout 30
 preload_app true
 
 before_fork do |server, worker|
-  # Replace with MongoDB or whatever
   if defined?(ActiveRecord::Base)
     ActiveRecord::Base.connection.disconnect!
     Rails.logger.info('Disconnected from ActiveRecord')
   end
 
-  # If you are using Redis but not Resque, change this
-  if defined?(Resque)
-    Resque.redis.quit
-    Rails.logger.info('Disconnected from Redis')
-  end
+  @pinging_background_process_pid ||= spawn('bundle exec rake pinging')
+  @urlcheck_background_process_pid ||= spawn('bundle exec rake url_check')
 
   sleep 1
 end
 
 after_fork do |server, worker|
-  # Replace with MongoDB or whatever
   if defined?(ActiveRecord::Base)
     ActiveRecord::Base.establish_connection
     Rails.logger.info('Connected to ActiveRecord')
-  end
-
-  # If you are using Redis but not Resque, change this
-  if defined?(Resque)
-    Resque.redis = ENV['REDIS_URI']
-    Rails.logger.info('Connected to Redis')
   end
 end

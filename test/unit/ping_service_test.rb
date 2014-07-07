@@ -3,20 +3,12 @@ require 'test_helper'
 class PingServiceTest < ActiveSupport::TestCase
 
   test "half-hourly pining" do
-    t = Time.local(2012, 5, 24, 21, 0)
-    Timecop.travel(t)
-    url = FactoryGirl.create(:url)
-    pings = url.pinged
+    url1 = FactoryGirl.create(:url, pinged: 10)
+    url2 = FactoryGirl.create(:url, address: 'http://test2.com')
 
-    # since heroku scheduler runs in 10 min cycles, there will be 6 runs in hour
-    [:ping, :not_ping, :not_ping, :ping, :not_ping, :not_ping].each do |action|
-      PingService.new.perform
-      pings += 1 if action == :ping
-      assert_equal pings, Url.first.pinged
-      Timecop.freeze(10*60)
-    end
-
-    Timecop.return
+    PingService.new.perform
+    assert_equal url1.reload.pinged, 11
+    assert_equal url2.reload.pinged, 1
   end
 
 end

@@ -1,8 +1,8 @@
 desc "This task is called by the Heroku scheduler add-on"
 task :pinging => :environment do
-  PingService.new.perform
+  BackgroundProcessSpawnerService.spawn_ping_process
 end
 
 task :url_check => :environment do
-  UrlCheckService.new.perform
+  BackgroundProcessSpawnerService.spawn_url_check_process
 end
