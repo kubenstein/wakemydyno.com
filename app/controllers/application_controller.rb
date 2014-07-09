@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   private
 
   def redirect_if_www
-    request_uri = request.env['REQUEST_URI']
-    redirect_to request_uri.gsub('http://www.', 'http://') unless /http:\/\/www\./.match(request_uri).nil?
+    request_uri = request.env['HTTP_HOST']
+    redirect_to request_uri.gsub('www.', 'http://') if request_uri.include?('www.')
   end
 end
