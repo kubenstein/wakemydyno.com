@@ -153,6 +153,7 @@ GEM
       rack
       raindrops (~> 0.7)
     uuidtools (2.1.4)
+    www-redirect (0.0.2)
 
 PLATFORMS
   ruby
@@ -177,3 +178,4 @@ DEPENDENCIES
   timecop
   uglifier
   unicorn
+  www-redirect
