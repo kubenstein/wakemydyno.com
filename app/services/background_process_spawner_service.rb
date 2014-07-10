@@ -1,14 +1,12 @@
 class BackgroundProcessSpawnerService
 
   def self.spawn_ping_process
-    initial_waiting_for_next_half_an_hour_in_seconds = (30 - Time.now.min%30) * 1.minute
-    puts "initial waiting (#{initial_waiting_for_next_half_an_hour_in_seconds}s) till next half an hour... "
-    sleep initial_waiting_for_next_half_an_hour_in_seconds
+    sleep 20.seconds
     while true do
-      puts "30min pinging..."
+      puts "25min pinging..."
       PingService.new.perform
       puts "done."
-      sleep 30.minutes
+      sleep 25.minutes
     end
   end
 
