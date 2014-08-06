@@ -18,10 +18,6 @@ class Url < ActiveRecord::Base
             presence: true,
             uniqueness: {
                 message: 'This url is already in our dyno database'
-            },
-            format: {
-                with: /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}\/?$/ix,
-                message: 'Url format is invalid'
             }
   validate :check_wakefile_existence, on: :create
 
@@ -43,8 +39,9 @@ class Url < ActiveRecord::Base
   end
 
   def check_wakefile_existence
-    unless WakefileExistenceService.new(address).wake_file_founded?
-      self.errors[:base] << "We can't find wakemydyno.txt file on requested site"
+    service = WakefileExistenceService.new(address)
+    unless service.wake_file_founded?
+      self.errors[:base] << service.error_message
       false
     end
   end
