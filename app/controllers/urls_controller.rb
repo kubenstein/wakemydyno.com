@@ -1,5 +1,8 @@
 class UrlsController < ApplicationController
-  before_filter :create_resource
+
+  def new
+    @url = Url.new(params[:url])
+  end
 
   def create
     @url = Url.new(params[:url])
@@ -8,13 +11,6 @@ class UrlsController < ApplicationController
     else
       render :new
     end
-  end
-
-
-  private
-
-  def create_resource
-    @url = Url.new(params[:url])
   end
 
 end
