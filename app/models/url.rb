@@ -27,12 +27,12 @@ class Url < ActiveRecord::Base
 
 
   def ping!
-    WakefileExistenceService.new(address).wake_file_founded?(1)
+    WakefileExistenceService.new(address).wake_file_founded?
     self.increment!(:pinged)
   end
 
   def check!
-    page_is_still_valid = WakefileExistenceService.new(address).wake_file_founded?(10)
+    page_is_still_valid = WakefileExistenceService.new(address).wake_file_founded?
     self.update_attributes!(marked_for_deletion: !page_is_still_valid)
   end
 

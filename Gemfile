@@ -7,6 +7,7 @@ gem 'rails', '3.2.19'
 gem 'jquery-rails'
 gem 'slim'
 gem 'www-redirect'
+gem 'httparty'
 gem 'sentry-raven', github: 'getsentry/raven-ruby', ref: '8e63d48823a60b7d591932582b6e3ee3678fea60'
 
 group :assets do
