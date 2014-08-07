@@ -17,7 +17,7 @@ group :assets do
 end
 
 group :test do
-  gem 'test-unit'
+  gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'fakeweb'
   gem 'timecop'
