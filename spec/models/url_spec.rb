@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: urls
+#
+#  id                  :integer          not null, primary key
+#  address             :string(255)
+#  marked_for_deletion :boolean          default(FALSE)
+#  pinged              :integer          default(0)
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#
+
 require 'spec_helper'
 
 describe Url do
