@@ -1,4 +1,4 @@
-wakemydyno.com
+wakemydyno.com [![Build Status](https://travis-ci.org/kubenstein/wakemydyno.com.svg)](https://travis-ci.org/kubenstein/wakemydyno.com)
 =============
 
 [wakemydyno.com](http://wakemydyno.com) is a service written in Rails, that will ping your heroku page every ~30mins preventing it from falling asleep.
