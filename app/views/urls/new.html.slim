@@ -12,21 +12,21 @@
   section#registration
     = form_for(@url) do |f|
       h2 Tired of long initial webpage loading time on Heroku?
-      p We will ping your web page every hour, keeping your app dyno up and ready!
-      ul
-        - if @url.errors.any?
-          - @url.errors.full_messages.each do |msg|
-            li.error= "- #{msg}"
-
-        - if notice.present?
-          li.ok= "- #{notice}"
-        - else
-          li
-            | - create file:
-            strong &nbsp;http://yoursite.com/wakemydyno.txt
-          li - register your site:
-      = f.text_field :address, placeholder: 'http://example.com'
-      = f.submit 'submit'
+      p Till now we've been pinging your web page every hour, keeping app dyno up and ready!
+      p
+        br
+        | Unfortunatelly recently Heroku changed its pricing policy and keeping your dyno 24/7 up will not be free anymore.
+        br
+        br
+        | One of our developer suggested that maybe some heuristic algorythm can be developed that will keep dyno awake in most crucial hours... but it is only an idea...
+        br
+        br
+        | We decided to stop pinging all our dynos.
+        br
+        br
+        | Thank you so much! Good night!
+        br
+        i style="display: block; text-align: right" - wakemydyno.com team
   br.clear
 #bottom
   span#grass

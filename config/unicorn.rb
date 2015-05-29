@@ -8,8 +8,9 @@ before_fork do |server, worker|
     Rails.logger.info('Disconnected from ActiveRecord')
   end
 
-  @pinging_background_process_pid ||= spawn('bundle exec rake pinging')
-  @urlcheck_background_process_pid ||= spawn('bundle exec rake url_check')
+  # Dynos will go sleep now...
+  # @pinging_background_process_pid ||= spawn('bundle exec rake pinging')
+  # @urlcheck_background_process_pid ||= spawn('bundle exec rake url_check')
 
   sleep 1
 end

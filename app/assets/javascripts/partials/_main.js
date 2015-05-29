@@ -4,25 +4,12 @@
 jQuery(document).ready(function () {
 
     // dyno blinking eyes
-    function blink() {
+    function sleepingDyno() {
         var eyes = $('#cute_dyno span.eyes');
-
-        function normal_eyes() {
-            eyes.removeClass('eyes_blink');
-        }
-
-        function closed_eyes() {
             eyes.addClass('eyes_blink');
-        }
-
-        setTimeout(closed_eyes, 0);
-        setTimeout(normal_eyes, 100);
-        setTimeout(closed_eyes, 500);
-        setTimeout(normal_eyes, 600);
-        setTimeout(blink, Math.random() * 10000 + 1000);
     }
 
-    blink();
+    sleepingDyno();
 
     // dyno confusion
     var talks_ready = 1;
@@ -41,6 +28,12 @@ jQuery(document).ready(function () {
             talks_ready = 1
         });
     }
+
+    function snoring() {
+        talk('ZZZzzzz...');
+        setTimeout(snoring, Math.random() * 10000 + 1000);
+    }
+    snoring();
 
     $('#cute_dyno a').click(function (event) {
         event.preventDefault();
